@@ -1,4 +1,4 @@
-//This program took me 6 straight hours to do it.
+//This program was brutal, took me 6 straight hours to do it.
 //It was literal busywork, overall a good program to code, 
 //but, if there is a program even remotely work intensive as this, please, a heads-up for future labs would be great.
 //Although, you might enjoy my programs.

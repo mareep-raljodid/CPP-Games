@@ -3,7 +3,7 @@
 #include<iostream>
 
 using namespace std;
-int input(){
+int input(){      //inputs the number by user supposed to be checked with die roll.
     int y=0;
     cout<<"Enter your point value (1 - 6): ";
     
@@ -15,21 +15,21 @@ yup:
     return y;
 }
 
-int rollDie() {
+int rollDie() {   //random dice roll simulator 
     int t;
     t=rand()%6+1;
     cout<<"You Rolled: "<<t<<endl;
     
     return t;}
 
-bool playOneGame(int r){
+bool playOneGame(int r){   //one game simulator, runs a die roll and equates with input
     if(r==rollDie())
         return true;
     else
         return false;
 }
 
-int main(){
+int main(){     //main function
     
     srand(time(nullptr));
     int temp, f=0;

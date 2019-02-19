@@ -6,7 +6,7 @@ using namespace std;
 int input(){      //inputs the number by user supposed to be checked with die roll.
     int y=0;
     cout<<"Enter your point value (1 - 6): ";
-    
+
 yup:
     cin>>y;
     if(y<1 || y>6){
@@ -14,12 +14,27 @@ yup:
         goto yup;}
     return y;
 }
+int bal(){
+    int wager=0, rp=0, f=0, bal1=0;
+    if(wager>0){
+        if(rp==true){
+            bal1=bal1+wager;
+            }
+        else if(rp==false){
+            f++;}
+        else if(wager==0)
+ bal1=bal1-wager;}
+if(f>=3){
+    bal1=bal1-wager;}
+return bal1;
+}
 
-int rollDie() {   //random dice roll simulator 
+
+int rollDie() {   //random dice roll simulator
     int t;
     t=rand()%6+1;
     cout<<"You Rolled: "<<t<<endl;
-    
+
     return t;}
 
 bool playOneGame(int r){   //one game simulator, runs a die roll and equates with input
@@ -29,8 +44,8 @@ bool playOneGame(int r){   //one game simulator, runs a die roll and equates wit
         return false;
 }
 
-int main(){     //main function
-    
+int algorithm(){
+
     srand(time(nullptr));
     int temp, f=0;
     bool rp;
@@ -83,4 +98,8 @@ fml:
             goto top;
         }
     }
+return 0;}
+
+int main(){     //main function
+    algorithm();
 }

@@ -11,7 +11,7 @@ int randnum(int hh, int g){
     int itr=g;
     int arrar[itr];
     int count[rand_max];
-    int x=0, am=0, max=0, min, mean=0;
+    int x=0, am=0, max=0, min=5e90, mean=0;
     float axx;
     
     for(int i=0; i<itr; i++){

@@ -5,12 +5,12 @@
 #include <iomanip>
 
 using namespace std;
-
-int
+int muskx=0, muskY=0;
+bool
 check (int p)
 {
   if (p <= 15 || p >= 0)
-    return p;
+    return true;
   else
     cout << "You cannot move that way! Try again." << endl;
 }
@@ -18,14 +18,14 @@ check (int p)
 int
 elon_is_movingx ()
 {
-  int muskx = rand () % 16 + 1;
+  muskx += rand () % 16 + 1;
   return muskx;
 }
 
 int
 elon_is_movingy ()
 {
-  int muskY = rand () % 16 + 1;
+  muskY += rand () % 16 + 1;
   return muskY;
 }
 
@@ -63,29 +63,43 @@ xxqw:
     "Pressing W/A/S/D and pressing return will move you one step in the specified direction."
     << endl;
 
-here:
-  cout << "Enter your input: ";
+  cout << "Enter your input (or E to exit): ";
   cin >> dd;
-  if (dd == "W")
+  here:
+  if (dd.compare("W")==0)
     {
       userx += 1;
+      if(check(userx)!=true)
+      goto here;
 
     }
-  if (dd == "S")
+  else if (dd.compare("S")==0)
     {
       userx -= 1;
+      if(check(userx)!=true)
+      goto here;
 
     }
-  if (dd == "D")
+  else if (dd.compare("D")==0)
     {
       usery += 1;
+      if(check(usery)!=true)
+      goto here;
 
     }
-  if (dd == "A")
+  else if (dd.compare("A")==0)
     {
       usery -= 1;
+      if(check(usery)!=true)
+      goto here;
 
     }
+  else if (dd.compare("E")==0)
+	  goto end;
+  else
+  {
+      cout<<"Wrong choice, please try again."<<endl;
+      goto xxqw;}
 
   if (rand () % 5 == 3 || rand () % 2 == 1)
     bool elon_awake = true;
@@ -147,11 +161,10 @@ here:
 
     }
 
-  cout << "Enter another input? Press E to exit or ant other key to continue"
-    << endl;
+  cout << "Enter another input (or E to exit): ";
   char h;
   cin >> h;
-  if (h == 'E')
+  if (dd.compare("E")==0)
     goto end;
   else
     goto here;

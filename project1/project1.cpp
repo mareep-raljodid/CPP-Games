@@ -891,6 +891,7 @@ game ()
     cout << "Where do you want to go first? " << endl;
     cin >> player_input;
     int rttyio = get_pos (player_input);
+    cout<<"Write the name of the place one more time to read its description."<<endl;
 here:
     cout << "Enter your input: " << endl;
     cin >> player_input;
@@ -970,4 +971,3 @@ main ()
     game ();
     
 }
-

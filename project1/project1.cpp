@@ -213,11 +213,7 @@ search (int pos)
     {
         cout << "After getting the objectives, you scanned the open grounds.."
         << endl;
-        cout <<
-        "And not so surprisingly, you found a bomb which was right on the way to forest."
-        << endl;
-        cout << "Ofcourse now you need to deactivate it..." << endl;
-        cout << "The bomb has Identification Number of 1377.";
+        cout << "And not so surprisingly, you didn't find a bomb." << endl;
     }
     if (pos == 1)
     {
@@ -237,7 +233,7 @@ search (int pos)
         << endl;
         cout << "You throw rock at the monkey and scare it off.." << endl;
         cout <<
-        "You go upclose, and you see the bomb has Identification Number of 1297."
+        "You go upclose, and you see the bomb has Identification Number of 1337."
         << endl;
     }
     if (pos == 3)
@@ -290,7 +286,7 @@ search (int pos)
         << endl;
         cout << "Do you want to use it? (Y/N)" << endl;
         cin >> hj;
-        if (hj == 'Y')
+        if (hj == 'Y' || hj == 'y')
         {
             cout << "You turn it on and go to investigate it..." << endl;
             msleep (800);
@@ -307,10 +303,10 @@ search (int pos)
             msleep (2000);
             cout << "Do you want to closer to investigate? (Y/N)" << endl;
             cin >> coco;
-            if (coco == 'Y')
+            if (coco == 'Y' || coco == 'y')
             {
                 cout <<
-                "The cmaera had a detonator.. and it was contolled by the enemies."
+                "The camera had a detonator.. and it was contolled by the enemies."
                 << endl;
                 cout << "...and it blasted." << endl;
                 game_over (2);
@@ -494,6 +490,7 @@ nukey (int x)
     else
     {
         cout << "One more try to go!" << endl;
+        cout << "Enter the Bomb ID to check inteference: ";
         cin >> x;
         if (x == 5837)
         {
@@ -547,7 +544,7 @@ grounds ()
     cout << "You get a radiation readings from your plane..." << endl;
     cout << "Something is fishy..Do you want to scan the plane? (y/n)" << endl;
     cin >> d;
-    if (d == 'y')
+    if (d == 'y' || d == 'Y')
     {
         cout << "You start scanning..." << endl;
         msleep (6000);
@@ -891,7 +888,8 @@ game ()
     cout << "Where do you want to go first? " << endl;
     cin >> player_input;
     int rttyio = get_pos (player_input);
-    cout<<"Write the name of the place one more time to read its description."<<endl;
+    cout << "Write the name of the place one more time to read its description."
+    << endl;
 here:
     cout << "Enter your input: " << endl;
     cin >> player_input;

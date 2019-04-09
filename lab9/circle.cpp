@@ -32,6 +32,13 @@ public:
     double getx(){
         return x;
     }
+    void dox(double this_x){
+        x=this_x;
+    }
+    void doy(double this_y){
+       y=this_y;
+    }
+
 private:
     double x,y;
 };
@@ -46,46 +53,120 @@ Point::Point(double ax, double ay){
     cout<<"X and Y value are: ("<<x<<","<<y<<")"<<endl;
 }
 
-bool test(Point a, Point b){
+/*  bool test(Point a, Point b){
     if(a==b)
         return true;
     else
         return false;
 }
+*/
+//-------------------------------------------------------------------------------------------------------------------------------
+class Circle {
+    
+friend istream & operator>>( istream &input, Circle &C ){
+        input >> C.P1 >> C.P2;
+        return input;
+    }
 
-int main() {
-    double x1,y1,x2,y2;
-    double dist;
+    public:
+    Circle(){
+        setP1(0, 0);
+        setP2(0, 0);
+    }
+
+    Circle(double x1, double y1, double x2, double y2) {
+        setP1(x1, y1);
+        setP2(x2, y2);
+    }
+
+    void setP1(double x, double y) {
+        P1.dox(x);
+        P1.doy(y);
+    }
+
+    void setP2(double x, double y) {
+        P2.dox(x);
+        P2.doy(y);
+    }
+
+    Point getP1() {
+        return P1;
+    }
     
-    Point p1;
-    Point p2;
-    cout<<"Enter Point 1: ";
-    cin>>p1;
-    cout<<endl;
+    Point getP2() {
+        return P2;
+    }
+
+    bool check() {
+        return (P1 == P2);
+    }
+
+    double radius() {
+        return sqrt(pow(P1.getx() - P2.getx(), 2) + 
+                    pow(P1.gety() - P2.gety(), 2));
+    }
     
-    cout<<"Enter Point 2: ";
-    cin>>p2;
-    cout<<endl;
+    double diameter() {
+        return 2 * radius();
+    }
+
+    double circump() {
+        return diameter() * 3.14;
+    }
+
+    double area() {
+        return radius() * radius() * 3.14;
+    }
+
+    bool operator==(Circle &rhs) {
+        if (!(rhs.check() && check())) return false;
+        return (rhs.getP1() == P1 && rhs.radius() == radius());
+    }
+
+private:
+    Point P1, P2;
+};
+
+
+
+
+
+
+
+
+
+
+
+//-------------------------------------------------------------------------------------------------------------------------------
+
+int main(){
+    Circle C1;
+    cout << "Enter four values for circle 1, seperated by space:" << endl;
+    cout << "Circle 1: " << endl;
+    cin >> C1;
+    Circle C2;
+    cout << "Enter four values for circle 1, seperated by space:" << endl;
+    cout << "Circle 2: " << endl;
+    cin >> C2;
     
-    /*cout<<"Enter another Point X: ";
-     cin>>x2;
-     cout<<endl;
-     
-     cout<<"Enter another Point Y: ";
-     cin>>y2;
-     cout<<endl;
-     
-     Point p1(x1,y1);
-     Point p2(x2,y2);*/
-    
-    if(test(p1,p2))
-        cout<<"Points are same, the circle cannot form because radius is 0"<<endl;
-    else
-    {
-        dist=(sqrt(((p1.getx()-p2.getx())*(p1.getx()-p2.getx()))+((p1.gety()-p2.gety())*(p1.gety()-p2.gety()))));
-        cout<<"Circle can be formed, radius would be: "<<dist<<endl<<"Diameter: "<<2*dist
-        <<endl<<"Area: "<<2*dist*3.14<<endl;}
-    
-    return 0;
-    
+    if(C1.check())
+    cout<<"Circle 1 cannot form."<<endl;
+
+    if(C2.check())
+    cout<<"Circle 2 cannot form."<<endl;
+
+    cout<<"Center Point of the circle 1 : "<<C1.getP1()<<endl;
+    cout<<"Point on the circumference of the circle 1 : "<<C1.getP2()<<endl;
+    cout<<"Radius: "<<C1.radius()<<endl<<"Diameter: "<<C1.diameter()
+    <<endl<<"Circumference: "<<C1.circump()<<endl<<"Area: "<<C1.area()<<endl;
+
+    cout<<"Center Point of the circle 2 : "<<C1.getP1()<<endl;
+    cout<<"Point on the circumference of the circle 2 : "<<C1.getP2()<<endl;
+    cout<<"Radius: "<<C1.radius()<<endl<<"Diameter: "<<C1.diameter()
+    <<endl<<"Circumference: "<<C1.circump()<<endl<<"Area: "<<C1.area()<<endl;
+
+
+    if(C1==C2){
+        cout<<"Both circles are same."<<endl;
+    }
 }

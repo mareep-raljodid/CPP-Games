@@ -118,30 +118,30 @@ void Board::move(int fromX, int fromY, int toX, int toY) {
 
 // Character s is the required side to which the user is castling and c is the
 // color of the piece, and moved is the int which stores if king or rook is previously
-bool Board::castle(char s, char c) {
+bool Board::castle(char c, char s) {
   if (c == 'b') {
     if (s == 'r') {
-      if ((board[0][4] == king) && (board[0][7] == rook) && rbrook &&
-          bking && (board[0][5] == 0) && (board[0][6] == 0)) {
+      if ((board[4][0] == king) && (board[7][0] == rook) && rbrook &&
+          bking && (board[5][0] == 0) && (board[6][0] == 0)) {
         cout << "You castled with the right Rook." << endl;
-        board[0][4] = 0;
-        board[0][5] = rook;
-        board[0][6] = king;
-        board[0][7] = 0;
+        board[4][0] = 0;
+        board[5][0] = rook;
+        board[6][0] = king;
+        board[7][0] = 0;
         rbrook = false;
         bking = false;
         return true;
       }
     }
     if (s == 'l'){
-      if ((board[0][4] == king) && (board[0][0] == rook) && lbrook && bking
-          && (board[0][1] == 0) && (board[0][2] == 0) && (board[0][3] == 0)) {
+      if ((board[4][0] == king) && (board[0][0] == rook) && lbrook && bking
+          && (board[1][0] == 0) && (board[2][0] == 0) && (board[3][0] == 0)) {
         cout << "You castled with the left Rook." << endl;
         board[0][0] = 0;
-        board[0][1] = 0;
-        board[0][2] = king;
-        board[0][3] = rook;
-        board[0][4] = 0;
+        board[1][0] = 0;
+        board[2][0] = king;
+        board[3][0] = rook;
+        board[4][0] = 0;
         lbrook = false;
         bking = false;
         return true;
@@ -150,12 +150,12 @@ bool Board::castle(char s, char c) {
   }
   if (c == 'w') {
     if (s == 'r') {
-      if ((board[7][4] == -king) && (board[7][7] == -rook) && rwrook &&
-          wking && (board[7][5] == 0) && (board[7][6] == 0)) {
+      if ((board[4][7] == -king) && (board[7][7] == -rook) && rwrook &&
+          wking && (board[5][7] == 0) && (board[6][7] == 0)) {
         cout << "You castled with the right Rook." << endl;
-        board[7][4] = 0;
-        board[7][5] = -rook;
-        board[7][6] = -king;
+        board[4][7] = 0;
+        board[5][7] = -rook;
+        board[6][7] = -king;
         board[7][7] = 0;
         rwrook = false;
         wking = false;
@@ -163,21 +163,20 @@ bool Board::castle(char s, char c) {
       }
     }
     if (s == 'l') {
-      if ((board[7][4] == -king) && (board[7][0] == -rook) && lwrook && wking
-          && (board[7][1] == 0) && (board[7][2] == 0) && (board[7][3] == 0)) {
+      if ((board[4][7] == -king) && (board[0][7] == -rook) && lwrook && wking
+          && (board[1][7] == 0) && (board[2][7] == 0) && (board[3][7] == 0)) {
         cout << "You castled with the left Rook." << endl;
-        board[7][0] = 0;
-        board[7][1] = 0;
-        board[7][2] = -king;
-        board[7][3] = -rook;
-        board[7][4] = 0;
+        board[0][7] = 0;
+        board[1][7] = 0;
+        board[2][7] = -king;
+        board[3][7] = -rook;
+        board[4][7] = 0;
         lwrook = false;
         wking = false;
         return true;
       }
     }
   }
-//  return false;
 }
 
 bool Board::validMove(int fromX, int fromY, int toX, int toY, char color) {

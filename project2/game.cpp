@@ -32,14 +32,22 @@ void Game::intro() {
 
 void Game::help() {
   cout << "Commands:" << endl;
-  cout << "help: displays help menu" << endl;
+  cout << "=========" << endl;
+  cout << endl;
+  cout << "------------------------------------------------------------------" <<endl;
   cout << "move <expression>: make a move" << endl;
-  cout << "  Expression is of the form initial space followed by" << endl;
-  cout << "  destination space. For example, \"move B3C5\" will move" << endl;
-  cout << "  the pice at B3 to C5." << endl;
+  cout << "      Expression is of the form initial space followed by" << endl;
+  cout << "      destination space. For example, \"move B3C5\" will move" << endl;
+  cout << "      the pice at B3 to C5." << endl;
+  cout << endl;
+  cout << "------------------------------------------------------------------" <<endl;
   cout << "castle <direction>: performs a castle" << endl;
-  cout << "  Direction must be \"left\" or \"right\"." << endl;
+  cout << "        Direction must be \"left\" or \"right\"." << endl;
+  cout << endl;
+  cout << "------------------------------------------------------------------" <<endl;
   cout << "forfeit: forfeits the game." << endl << endl;
+  cout << endl;
+  cout << "------------------------------------------------------------------" <<endl;
 }
 
 void Game::loop() {
@@ -95,9 +103,6 @@ bool Game::parseInput(char color) {
         }
       } while (!valMove);
     } else if (inp.at(0) == "castle") {
-      //===========================
-      //cout<<inp.at(1).at(0); 
-      //===========================
       char ser=inp.at(1).at(0);
       if (!Game::board.castle(color, ser)) {
         cout << "Invalid castle. Enter new command." << endl;

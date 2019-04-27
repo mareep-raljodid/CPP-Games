@@ -44,16 +44,16 @@ void Game::help() {
 
 void Game::loop() {
   while (!Game::hasWon) {
-    //("clear");
-    //("CLS");
+    system("clear");
+    system("CLS");
     Game::board.print();
     if (Game::board.check('w', false))
       cout << "You are in check." << endl;
     cout << "Enter command white:" << endl;
     if (parseInput('w'))
       return;
-    //("clear");
-    //("CLS");
+    system("clear");
+    system("CLS");
     Game::board.print();
     if (Game::board.check('b', false))
       cout << "You are in check." << endl;

@@ -46,6 +46,7 @@ void Game::loop() {
   while (!Game::hasWon) {
     system("clear");
     system("CLS");
+    Game::help();
     Game::board.print();
     if (Game::board.check('w', false))
       cout << "You are in check." << endl;
@@ -54,6 +55,7 @@ void Game::loop() {
       return;
     system("clear");
     system("CLS");
+    Game::help();
     Game::board.print();
     if (Game::board.check('b', false))
       cout << "You are in check." << endl;

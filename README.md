@@ -1,2 +1,1 @@
-# bandoprp-EECS-Programming
-EECS-Programming created for bandoprp
+# My C++ Projects

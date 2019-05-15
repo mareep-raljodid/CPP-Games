@@ -1,5 +1,4 @@
-Project Title:
- * COMMANDO 2.0
+ # COMMANDO 2.0
  * Description: A game where player starts in an unknown map. Searches for three bombs,
  * and deactivate them to aquire IDs. And lastly deactivates the main bomb to win the game.
  *

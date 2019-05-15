@@ -17,7 +17,7 @@ Project Title:
  * No special compilations instructions.
  * Compile using:
  ```
- g++ crf.cpp
+ g++ GameCG.cpp
  ./a.out
  ```
  *

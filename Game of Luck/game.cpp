@@ -6,7 +6,7 @@
 
 using namespace std;
 
-int input(){      //inputs the number by user supposed to be checked with die roll.
+int input(){      //inputs the number by user supposed to be checked with die roll
     
     int y=0;
     
